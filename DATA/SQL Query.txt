@@ -1,0 +1,44 @@
+Data Source=ACER;Initial Catalog=ParkingLotDB;Integrated Security=True;Encrypt=False
+
+
+
+
+
+CREATE TABLE [dbo].[FakultetTbl] (
+    [FakultetId]    INT          IDENTITY (1, 1) NOT NULL,
+    [FakultetNomi]  VARCHAR (50) NOT NULL,
+    [Dekan]         VARCHAR (50) NOT NULL,
+    [TelefonRaqami] VARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_FakultetTbl] PRIMARY KEY CLUSTERED ([FakultetId] ASC)
+);
+
+CREATE TABLE [dbo].[FanlarTbl] (
+    [FanId]       INT          IDENTITY (1, 1) NOT NULL,
+    [KafedraId]   INT          NOT NULL,
+    [FanNomi]     VARCHAR (50) NOT NULL,
+    [OqituvchiId] INT          NOT NULL,
+    CONSTRAINT [PK_FanlarTbl] PRIMARY KEY CLUSTERED ([FanId] ASC)
+);
+
+CREATE TABLE [dbo].[KafedraTbl] (
+    [KafedraId]   INT          IDENTITY (1, 1) NOT NULL,
+    [KafedraNomi] VARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_KafedraTbl] PRIMARY KEY CLUSTERED ([KafedraId] ASC)
+);
+
+CREATE TABLE [dbo].[OqituvchiTbl] (
+    [OqituvchiId]      INT          IDENTITY (1, 1) NOT NULL,
+    [KafedraId]        INT          NOT NULL,
+    [IsmFamiliyasi]    VARCHAR (50) NOT NULL,
+    [PassportSeriyasi] VARCHAR (50) NOT NULL,
+    [TelefonRaqami]    VARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_OqituvchiTbl] PRIMARY KEY CLUSTERED ([OqituvchiId] ASC)
+);
+
+CREATE TABLE [dbo].[YonalishTbl] (
+    [YonalishId]   INT          IDENTITY (1, 1) NOT NULL,
+    [FakultetId]   INT          NOT NULL,
+    [YonalishNomi] VARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_YonalishTbl] PRIMARY KEY CLUSTERED ([YonalishId] ASC)
+);
+
