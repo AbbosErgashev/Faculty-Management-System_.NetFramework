@@ -58,7 +58,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "insert into FanlarTbl values('" + ktbl.SelectedIndex + "', '" + ftbl.Text + "', '" + otbl.SelectedIndex + "')";
+                    string query = "insert into FanlarTbl values('" + ktbl.SelectedValue + "', '" + ftbl.Text + "', '" + otbl.SelectedValue + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Saqlandi");
@@ -85,7 +85,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "update FanlarTbl set KafedraId='" + ktbl.SelectedIndex + "', FanNomi='" + ftbl.Text + "', OqituvchiId='" + otbl.SelectedIndex + "' where FanId=" + key + ";";
+                    string query = "update FanlarTbl set KafedraId='" + ktbl.SelectedValue + "', FanNomi='" + ftbl.Text + "', OqituvchiId='" + otbl.SelectedValue + "' where FanId=" + key + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Yangilandi");
@@ -199,9 +199,9 @@ namespace FacultyManagementSystem
 
         private void fanDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ktbl.SelectedItem = fanDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+            ktbl.SelectedValue = fanDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
             ftbl.Text = fanDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
-            otbl.SelectedItem = fanDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
+            otbl.SelectedValue = fanDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
             if (ftbl.Text == "")
             {
                 key = 0;

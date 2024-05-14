@@ -47,7 +47,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "insert into YonalishTbl values('" + fcb.SelectedIndex + "', '" + ytbl.Text + "')";
+                    string query = "insert into YonalishTbl values('" + fcb.SelectedValue + "', '" + ytbl.Text + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Saqlandi");
@@ -102,7 +102,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "update YonalishTbl set FakultetId='" + fcb.SelectedIndex + "', YonalishNomi='" + ytbl.Text + "' where YonalishId=" + key + ";";
+                    string query = "update YonalishTbl set FakultetId='" + fcb.SelectedValue + "', YonalishNomi='" + ytbl.Text + "' where YonalishId=" + key + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Yangilandi");
@@ -206,7 +206,7 @@ namespace FacultyManagementSystem
 
         private void yonalishDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            fcb.SelectedItem = yonalishDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+            fcb.SelectedValue = yonalishDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
             ytbl.Text = yonalishDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
             if (ytbl.Text == "")
             {

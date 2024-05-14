@@ -47,7 +47,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "insert into OqituvchiTbl values('" + ktbl.SelectedIndex + "', '" + itbl.Text + "', '" + ptbl.Text + "', '" + ttbl.Text + "')";
+                    string query = "insert into OqituvchiTbl values('" + ktbl.SelectedValue + "', '" + itbl.Text + "', '" + ptbl.Text + "', '" + ttbl.Text + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Saqlandi");
@@ -74,7 +74,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "update OqituvchiTbl set KafedraId='" + ktbl.SelectedIndex + "', IsmFamiliyasi='" + itbl.Text + "', PassportSeriyasi='" + ptbl.Text + "', TelefonRaqami='" + ttbl.Text + "' where OqituvchiId=" + key + ";";
+                    string query = "update OqituvchiTbl set KafedraId='" + ktbl.SelectedValue + "', IsmFamiliyasi='" + itbl.Text + "', PassportSeriyasi='" + ptbl.Text + "', TelefonRaqami='" + ttbl.Text + "' where OqituvchiId=" + key + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Yangilandi");
@@ -190,7 +190,7 @@ namespace FacultyManagementSystem
 
         private void FacultyDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ktbl.SelectedItem = FacultyDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+            ktbl.SelectedValue = FacultyDGV.Rows[e.RowIndex].Cells[1].Value.ToString();
             itbl.Text = FacultyDGV.Rows[e.RowIndex].Cells[2].Value.ToString();
             ptbl.Text = FacultyDGV.Rows[e.RowIndex].Cells[3].Value.ToString();
             ttbl.Text = FacultyDGV.Rows[e.RowIndex].Cells[4].Value.ToString();

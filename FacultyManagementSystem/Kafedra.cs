@@ -74,7 +74,7 @@ namespace FacultyManagementSystem
                 try
                 {
                     Con.Open();
-                    string query = "update KafedraTbl set KafedraId='" + ktbl.Text + "' where OqituvchiId=" + key + ";";
+                    string query = "update KafedraTbl set KafedraNomi='" + ktbl.Text + "' where KafedraId=" + key + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Yangilandi");
@@ -120,8 +120,8 @@ namespace FacultyManagementSystem
         private DataTable AllSearch()
         {
             string query = "SELECT * FROM KafedraTbl ";
-            query += "WHERE OqituvchiId LIKE '%' + @param + '%' ";
-            query += "OR KafedraId LIKE '%' + @param + '%' ";
+            query += "WHERE KafedraId LIKE '%' + @param + '%' ";
+            query += "OR KafedraNomi LIKE '%' + @param + '%' ";
             string con = "Data Source=ACER;Initial Catalog=faculty_management_system_db;Integrated Security=True;Encrypt=False";
 
             using (SqlConnection conn = new SqlConnection(con))
